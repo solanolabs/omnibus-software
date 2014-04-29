@@ -36,9 +36,19 @@ dependency "libarchive"
 
 dependency "bundler"
 
+test = Mixlib::ShellOut.new("test -f /usr/bin/gcc44")
+test.run_command
+
+env = if test.exitstatus == 0
+        {"CC" => "gcc44", "CXX" => "g++44",
+         "PATH" => "#{install_dir}/embedded/bin:#{ENV['PATH']}"}
+      else
+        { "PATH" => "#{install_dir}/embedded/bin:#{ENV['PATH']}"}
+      end
+
 build do
-  bundle "install --without guard", :env => {"PATH" => "#{install_dir}/embedded/bin:#{ENV['PATH']}"}
-  bundle "exec thor gem:build", :env => {"PATH" => "#{install_dir}/embedded/bin:#{ENV['PATH']}"}
+  bundle "install --without guard", :env => env
+  bundle "exec thor gem:build", :env => env
   gem ["install pkg/berkshelf-*.gem",
-       "--no-rdoc --no-ri"].join(" "), :env => {"PATH" => "#{install_dir}/embedded/bin:#{ENV['PATH']}"}
+       "--no-rdoc --no-ri"].join(" "), :env => env
 end
