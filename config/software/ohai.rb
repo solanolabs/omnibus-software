@@ -22,7 +22,6 @@ if platform == 'windows'
 else
   dependency "ruby"
   dependency "rubygems"
-  dependency "yajl"
 end
 
 dependency "bundler"
