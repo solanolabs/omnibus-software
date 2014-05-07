@@ -21,6 +21,8 @@ relative_path "ffi-yajl"
 
 source :git => "git://github.com/lamont-granquist/ffi-yajl"
 
+dependency "cmake"
+
 if platform == 'windows'
   dependency "ruby-windows"
   dependency "ruby-windows-devkit"
