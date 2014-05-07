@@ -58,7 +58,7 @@ env =
   end
 
 build do
-  command "./bootstrap", :env => env
+  command "./bootstrap --prefix=#{install_dir}/embedded", :env => env
   command "make -j #{max_build_jobs}", :env => env
   command "make -j #{max_build_jobs} install", :env => env
 end
