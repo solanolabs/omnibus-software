@@ -62,7 +62,7 @@ build do
 
   # On 64-bit centos, libffi libraries are places under /embedded/lib64
   # move them over to lib
-  if platform == "centos" && OHAI[:machine] == "x86_64"
+  if platform == "centos" && OHAI[:kernel][:machine] == "x86_64"
     command "mv #{install_dir}/embedded/lib64/* #{install_dir}/embedded/lib/"
     command "rm -rf #{install_dir}/embedded/lib64"
   end
