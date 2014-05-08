@@ -59,7 +59,7 @@ build do
   command "./configure --prefix=#{install_dir}/embedded", :env => configure_env
   command "make -j #{max_build_jobs}"
   command "make -j #{max_build_jobs} install"
-  # libffi's default install location of header files is aweful...
+  # libffi's default install location of header files is awful...
   command "cp -f #{install_dir}/embedded/lib/libffi-3.0.13/include/* #{install_dir}/embedded/include"
 
   # On 64-bit centos, libffi libraries are places under /embedded/lib64
