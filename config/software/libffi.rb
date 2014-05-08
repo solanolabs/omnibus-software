@@ -46,7 +46,7 @@ configure_env =
   when "solaris2"
     {
       "LDFLAGS" => "-R#{install_dir}/embedded/lib -L#{install_dir}/embedded/lib -I#{install_dir}/embedded/include",
-      "CFLAGS" => "-I#{install_dir}/embedded/include -L#{install_dir}/embedded/lib -DNO_VIZ"
+      "CFLAGS" => "-I#{install_dir}/embedded/include -L#{install_dir}/embedded/lib"
     }
   else
     {
