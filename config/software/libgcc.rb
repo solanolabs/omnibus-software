@@ -26,12 +26,16 @@ libgcc_file =
     "/opt/freeware/lib/pthread/ppc64/libgcc_s.a"
   when "freebsd"
     "/lib/libgcc_s.so.1"
+  else
+    nil
   end
 
 build do
-  if libgcc_file && File.exists?(libgcc_file)
-    command "cp #{libgcc_file} #{install_dir}/embedded/lib/"
-  else
-    raise "cannot find libgcc -- where is your gcc compiler?"
+  if libgcc_file
+    if File.exists?(libgcc_file)
+      command "cp #{libgcc_file} #{install_dir}/embedded/lib/"
+    else
+      raise "cannot find libgcc -- where is your gcc compiler?"
+    end
   end
 end
