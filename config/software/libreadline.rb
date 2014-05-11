@@ -15,17 +15,14 @@
 # limitations under the License.
 #
 
-name "libsqlite3"
-default_version "3.8.4.3"
-
-dependency "libreadline"
+name "libreadline"
+default_version "6.3"
 
 
-#       needs a better way to figure out download
-source :url => "http://www.sqlite.org/2014/sqlite-autoconf-3080403.tar.gz",
-       :md5 => '0f5459cde43cb269e5120ecd2c671ced'
+source :url => "ftp://ftp.cwru.edu/pub/bash/readline-#{version}.tar.gz",
+       :md5 => '33c8fb279e981274f485fd91da77e94a'
 
-relative_path "sqlite-autoconf-3080403"
+relative_path "readline-#{version}"
 configure_env =
 
 build do
