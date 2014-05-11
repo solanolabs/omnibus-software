@@ -29,9 +29,11 @@ relative_path "sqlite-autoconf-3080403"
 configure_env =
 
 build do
-  "CFLAGS" => "-L#{install_dir}/embedded/lib -I#{install_dir}/embedded/include -O3 -g -pipe",
-  "LDFLAGS" => "-R#{install_dir}/embedded/lib -L#{install_dir}/embedded/lib -I#{install_dir}/embedded/include -static-libgcc",
-  "LD_OPTIONS" => "-R#{install_dir}/embedded/lib"
+  {
+    "CFLAGS" => "-L#{install_dir}/embedded/lib -I#{install_dir}/embedded/include -O3 -g -pipe",
+    "LDFLAGS" => "-R#{install_dir}/embedded/lib -L#{install_dir}/embedded/lib -I#{install_dir}/embedded/include -static-libgcc",
+    "LD_OPTIONS" => "-R#{install_dir}/embedded/lib"
+  }
 
   command "./configure --prefix=#{install_dir}/embedded", :env => configure_env
   command "make -j #{max_build_jobs}"
