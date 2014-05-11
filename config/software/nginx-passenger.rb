@@ -37,7 +37,7 @@ build do
            "--with-http_ssl_module",
            "--with-http_stub_status_module",
            "--with-debug",
-           "--add-module=#{install_dir}/embedded/gems/passenger-4.0.37/ext/nginx",
+           "--add-module=#{install_dir}/embedded/lib/ruby/gems/1.9.1/gems/passenger-4.0.37/ext/nginx",
            "--with-ld-opt=-L#{install_dir}/embedded/lib",
            "--with-cc-opt=\"-L#{install_dir}/embedded/lib -I#{install_dir}/embedded/include\""].join(" ")
   command "make -j #{max_build_jobs}", :env => {"LD_RUN_PATH" => "#{install_dir}/embedded/lib"}
