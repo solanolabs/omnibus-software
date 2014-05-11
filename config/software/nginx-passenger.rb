@@ -20,6 +20,8 @@ default_version "1.4.5"
 
 dependency "pcre"
 dependency "openssl"
+dependency "libffi"
+dependency "libsqlite3"
 
 source :url => "http://nginx.org/download/nginx-#{version}.tar.gz",
        :md5 => "1a635e9543570f0c881b8ec9db0c6898"
