@@ -16,7 +16,7 @@
 #
 
 name "unicorn"
-default_version "4.2.0"
+default_version "4.8.3"
 
 dependency "rubygems"
 
