@@ -25,7 +25,11 @@ source :url => "http://download.savannah.gnu.org/releases/attr/attr-#{version}.s
        :md5 => '84f58dec00b60f2dc8fd1c9709291cc7'
 
 relative_path "attr-#{version}"
-configure_env =
+configure_env =     {
+      "LDFLAGS" => "-L#{install_dir}/embedded/lib -I#{install_dir}/embedded/include",
+      "CFLAGS" => "-L#{install_dir}/embedded/lib -I#{install_dir}/embedded/include",
+      "LD_RUN_PATH" => "#{install_dir}/embedded/lib"
+    }
 
 build do
   command "./configure --prefix=#{install_dir}/embedded", :env => configure_env
