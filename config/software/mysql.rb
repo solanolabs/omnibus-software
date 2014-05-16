@@ -15,25 +15,30 @@
 # limitations under the License.
 #
 
-name "attr"
-default_version "2.4.47"
+name "mysql"
+default_version "2.9.1"
 
-dependency "gettext"
+if platform == 'windows'
+  dependency "ruby-windows"
+  dependency "ruby-windows-devkit"
+else
+  dependency "ruby"
+  dependency "rubygems"
+  dependency "attr"
+end
 
+env = {
+        "PATH" => "#{install_dir}/embedded/bin:#{ENV["PATH"]}",
+        "CFLAGS" => "-I#{install_dir}/embedded/include -L#{install_dir}/embedded/lib",
+        "LDFLAGS" => "-L#{install_dir}/embedded/lib -I#{install_dir}/embedded/include"
 
-source :url => "http://download.savannah.gnu.org/releases/attr/attr-#{version}.src.tar.gz",
-       :md5 => '84f58dec00b60f2dc8fd1c9709291cc7'
-
-relative_path "attr-#{version}"
-configure_env =     {
-      "PATH" => "#{install_dir}/embedded/bin:#{ENV["PATH"]}",
-      "CFLAGS" => "-I#{install_dir}/embedded/include -L#{install_dir}/embedded/lib",
-      "LDFLAGS" => "-L#{install_dir}/embedded/lib -I#{install_dir}/embedded/include"
-    }
+}
 
 build do
-  command "./configure --prefix=#{install_dir}/embedded", :env => configure_env
-  command "make -j #{max_build_jobs}"
-  command "make -j #{max_build_jobs} install"
-
+  gem ["install",
+       "mysql",
+       "-v #{version}",
+       "--",
+       "mysql",
+       " --with-mysql-config=#{install_dir}/embedded"].join(" "), :env => env
 end
