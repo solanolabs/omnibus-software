@@ -18,6 +18,8 @@
 name "attr"
 default_version "2.4.47"
 
+dependency "gettext"
+
 
 source :url => "http://download.savannah.gnu.org/releases/attr/attr-#{version}.src.tar.gz",
        :md5 => '84f58dec00b60f2dc8fd1c9709291cc7'
