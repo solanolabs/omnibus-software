@@ -16,7 +16,7 @@
 #
 
 name "mysqlclient"
-default_version "6.13"
+default_version "6.1.3"
 
 dependency "gettext"
 
