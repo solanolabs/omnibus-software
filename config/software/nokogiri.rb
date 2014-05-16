@@ -37,7 +37,8 @@ end
 # in core ominbus-ruby.
 env = {
   "PKG_CONFIG_PATH" => "#{install_dir}/embedded/lib/pkgconfig",
-  "NOKOGIRI_USE_SYSTEM_LIBRARIES" => "true",
+  #"NOKOGIRI_USE_SYSTEM_LIBRARIES" => "true",
+  "NOKOGIRI_USE_SYSTEM_LIBRARIES" => "false",
 }
 
 build do
