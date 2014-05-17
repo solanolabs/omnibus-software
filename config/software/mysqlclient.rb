@@ -32,7 +32,7 @@ configure_env =     {
     }
 
 build do
-  command "cmake -G \"Unix Makefiles\" -DCMAKE_INSTALL_PREFIX=#{install_dir}"
+  command "cmake -G \"Unix Makefiles\" -DCMAKE_INSTALL_PREFIX=#{install_dir}/embedded"
   command "make -j #{max_build_jobs}", :env => configure_env
   command "make -j #{max_build_jobs} install"
 
