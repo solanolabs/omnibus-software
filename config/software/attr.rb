@@ -32,7 +32,7 @@ configure_env =     {
     }
 
 build do
-  command "./configure --prefix=#{install_dir}/embedded", :env => configure_env
+  command "./configure --enable-shared=no --prefix=#{install_dir}/embedded", :env => configure_env
   command "make -j #{max_build_jobs}"
   command "make -j #{max_build_jobs} install"
 
