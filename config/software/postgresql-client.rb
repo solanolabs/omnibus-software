@@ -15,7 +15,7 @@
 # limitations under the License.
 #
 
-name "postgresql"
+name "postgresql-client"
 default_version "9.2.8"
 
 dependency "zlib"
@@ -47,7 +47,7 @@ build do
            "--with-openssl --with-includes=#{install_dir}/embedded/include",
            "--with-libraries=#{install_dir}/embedded/lib"].join(" "), :env => configure_env
   %w{src/bin src/include src/interfaces doc}.each do |path|
-    command "gmake -C #{path} -j #{max_build_jobs}", :env => {"LD_RUN_PATH" => "#{install_dir}/embedded/lib"}
-    command "gmake -C #{path} install"
+    command "make -C #{path} -j #{max_build_jobs}", :env => {"LD_RUN_PATH" => "#{install_dir}/embedded/lib"}
+    command "make -C #{path} install"
   end
 end
