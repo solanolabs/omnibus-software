@@ -46,8 +46,9 @@ build do
            "--with-libedit-preferred",
            "--with-openssl --with-includes=#{install_dir}/embedded/include",
            "--with-libraries=#{install_dir}/embedded/lib"].join(" "), :env => configure_env
+  command "make -C src/backend ../../src/include/utils/fmgroids.h"
   %w{src/bin src/include src/interfaces doc}.each do |path|
     command "make -C #{path} -j #{max_build_jobs}", :env => {"LD_RUN_PATH" => "#{install_dir}/embedded/lib"}
-    command "make -C #{path} install" unless path == 'src/include'
+    command "make -C #{path} install"
   end
 end
