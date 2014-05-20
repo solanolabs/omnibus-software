@@ -48,6 +48,6 @@ build do
            "--with-libraries=#{install_dir}/embedded/lib"].join(" "), :env => configure_env
   %w{src/bin src/include src/interfaces doc}.each do |path|
     command "make -C #{path} -j #{max_build_jobs}", :env => {"LD_RUN_PATH" => "#{install_dir}/embedded/lib"}
-    command "make -C #{path} install"
+    command "make -C #{path} install" unless path == 'src/include'
   end
 end
