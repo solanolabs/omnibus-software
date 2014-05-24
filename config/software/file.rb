@@ -37,6 +37,6 @@ build do
   command ["./configure",
            "--prefix=#{install_dir}/embedded",
            "--with-libraries=#{install_dir}/embedded/lib"].join(" "), :env => configure_env
-   command "make -j #{max_build_jobs}"
+   command "make -j #{max_build_jobs}", :env=>configure_env
    command "make -j #{max_build_jobs} install"
 end
