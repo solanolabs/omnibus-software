@@ -16,11 +16,11 @@
 
 
 name "libgpg-error"
-default_version "1.9"
+default_version "1.13"
 
 
-version "1.9" do
-  source :md5 => "6dde8fd075aef8eaf8d3ae414447bb35"
+version "1.13" do
+  source :md5 => "05815bddbd2d0a8b4db0e2c1c5e7b333"
 end
 
 source :url => "ftp://ftp.gnupg.org/gcrypt/libgpg-error/libgpg-error-#{version}.tar.gz"
