@@ -21,7 +21,7 @@ default_version "1.6.1"
 dependency "zlib"
 
 version "1.6.1" do
-  source :md5 => "f03d9b63ac3b17a6972fc11150d136925b702f02"
+  source :md5 => "a5a5060dc2f80bcac700ab0236ea47dc"
 end
 
 source :url => "ftp://ftp.gnupg.org/gcrypt/libgcrypt/libgcrypt-#{version}.tar.bz2"
