@@ -15,18 +15,16 @@
 # limitations under the License.
 
 
-name "libgcrypt"
-default_version "1.6.1"
+name "libgpg-error"
+default_version "1.9"
 
-dependency "libgpg-error"
-dependency "zlib"
 
-version "1.6.1" do
-  source :md5 => "a5a5060dc2f80bcac700ab0236ea47dc"
+version "1.9" do
+  source :md5 => "6dde8fd075aef8eaf8d3ae414447bb35"
 end
 
-source :url => "ftp://ftp.gnupg.org/gcrypt/libgcrypt/libgcrypt-#{version}.tar.bz2"
-relative_path "libgcrypt-#{version}"
+source :url => "ftp://ftp.gnupg.org/gcrypt/libgpg-error/libgpg-error-#{version}.tar.gz"
+relative_path "libgpg-error-#{version}"
 
 configure_env = {
   "LDFLAGS" => "-L#{install_dir}/embedded/lib -I#{install_dir}/embedded/include",
